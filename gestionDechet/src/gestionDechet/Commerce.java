@@ -1,72 +1,85 @@
+package gestionDechet;
+
 
 import java.util.*;
-
 /**
  * 
  */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Commerce {
-
-    /**
-     * Default constructor
-     */
-    public Commerce() {
-    }
-
-    /**
-     * 
-     */
     private String nom;
+    private String adresse;
+    private String type;
+    private List<CategorieProduit> categories;
+    private Contrat contrat;
 
-    /**
-     * 
-     */
-    private List<String> categoriesProduits;
-
-    /**
-     * 
-     */
-    private List<Contrat> partenariats;
-
-    /**
-     * @param contrat  
-     * @return
-     */
-    public boolean definirReglesUtilisationPoints(Contrat contrat ) {
-        // TODO implement here
-        return false;
+    public Commerce(String nom, String adresse, String type) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.type = type;
+        this.categories = new ArrayList<>();
     }
 
-    /**
-     * @return
-     */
-    public boolean supprimerPartenariat() {
-        // TODO implement here
-        return false;
+    public String getNom() {
+        return nom;
     }
 
-    /**
-     * @return
-     */
-    public boolean estPartenaire() {
-        // TODO implement here
-        return false;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    /**
-     * @param points 
-     * @return
-     */
-    public float appliquerReduction(int points) {
-        // TODO implement here
-        return 0.0f;
+    public String getAdresse() {
+        return adresse;
     }
 
-    /**
-     * @return
-     */
-    public List<String> getProduitsEligibles() {
-        // TODO implement here
-        return null;
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    public List<CategorieProduit> getCategories() {
+        return categories;
+    }
+    
+    public void ajouterCategorie(CategorieProduit categorie) {
+        categories.add(categorie);
+    }
+    
+    public void supprimerCategorie(CategorieProduit categorie) {
+        categories.remove(categorie);
+    }
+    
+    public Contrat getContrat() {
+        return contrat;
+    }
+    
+    public void setContrat(Contrat contrat) {
+        this.contrat = contrat;
+    }
+
+
+    public boolean contratActif() {
+        return contrat != null && contrat.estActif();
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Commerce{" +
+                "nom='" + nom + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", type='" + type + '\'' +
+                ", categories=" + categories +
+                ", contrat=" + (contrat != null ? contrat.toString() : "Aucun") +
+                '}';
+    }
 }
