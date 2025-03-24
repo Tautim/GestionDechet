@@ -5,9 +5,10 @@ USE gestion_dechet;
 -- Table Compte
 CREATE TABLE IF NOT EXISTS compte (
     id INT PRIMARY KEY,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL,
     mot_de_passe VARCHAR(100) NOT NULL,
-    points_fidelite INT DEFAULT 0
+    points_fidelite INT DEFAULT 0,
+    depot
 );
 
 -- Table TypeDechet (pour référence)
